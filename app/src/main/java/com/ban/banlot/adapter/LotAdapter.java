@@ -1,18 +1,13 @@
-package com.ban.banlot;
+package com.ban.banlot.adapter;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.List;
+import com.ban.banlot.R;
 
-import static android.R.attr.action;
-import static android.R.attr.text;
+import java.util.List;
 
 /**
  * Created by Ban on 2016/7/26.

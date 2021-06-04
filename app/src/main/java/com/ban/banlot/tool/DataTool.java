@@ -23,7 +23,7 @@ public class DataTool {
 
     public DataTool(Context context) {
         this.context = context;
-        FileHelper helper = FileHelper.getInstance(context, "/toastmaster");
+        FileHelper helper = FileHelper.getInstance(context, "/Ban/BanLot");
         file = new File(helper.getAbsoluteFilePath("date"));
         if (!file.exists()) {
             try {

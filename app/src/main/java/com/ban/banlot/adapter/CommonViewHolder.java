@@ -1,4 +1,4 @@
-package com.ban.banlot;
+package com.ban.banlot.adapter;
 
 import android.content.Context;
 import android.util.SparseArray;
