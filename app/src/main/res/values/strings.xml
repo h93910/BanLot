@@ -91,4 +91,5 @@
     </string>
     <string name="action_settings">导入文件</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_finish">结束</string>
 </resources>

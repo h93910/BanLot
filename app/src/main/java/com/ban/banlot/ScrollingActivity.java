@@ -134,8 +134,7 @@ public class ScrollingActivity extends AppCompatActivity {
      */
     private void lot() {
         String show = "";
-        //如为列表,为连续的问题
-        if (mCurrentQuestion.isJsonArray()) {
+        if (mCurrentQuestion.isJsonArray()) {//如为列表,为连续的问题,单抽当前项
             JsonArray ja = mCurrentQuestion.getAsJsonArray();
             if (ja.size() == 0) {
                 mCurrentQuestion = JsonNull.INSTANCE;
@@ -144,7 +143,7 @@ public class ScrollingActivity extends AppCompatActivity {
             }
             show = ja.get(0).getAsString();
             ja.remove(0);
-        } else {
+        } else if (mCheckData.size() != 0) {
             int randomNumber = (int) (Math.random() * mCheckData.size());
             mCurrentQuestion = mCheckData.get(randomNumber);
             mCheckData.remove(randomNumber);
@@ -154,8 +153,11 @@ public class ScrollingActivity extends AppCompatActivity {
                 lot();
                 return;
             }
+        } else {
+            refreshDate();
+            toolbarLayout.setTitle(getString(R.string.title_finish));
+            return;
         }
-        toolbarLayout.setTitle(show);
         mPassData.addFirst(show);
         refreshDate();
     }
@@ -168,7 +170,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
     private void juggButtonHideAndShow() {
-        if (mCheckData != null && mCheckData.size() != 0) {
+        if (mCheckData != null && mCheckData.size() != 0 || mCurrentQuestion.isJsonArray()) {
             lot.setVisibility(View.VISIBLE);
         } else {
             lot.setVisibility(View.INVISIBLE);
